@@ -1,13 +1,13 @@
 # Nuxt 3 + Laravel Fullstack Boilerplate with Admin Login
 
-A modern fullstack starter kit using **Nuxt 3 (client-side)** as frontend and **Laravel 11** as backend API. Includes basic admin login using **Laravel Sanctum**.
+A modern fullstack starter kit using **Nuxt 3 (server-side)** as frontend and **Laravel 11** as backend API. Includes basic admin login using **Laravel Sanctum**.
 
 ---
 
 ## Project Structure
 
 ```
-/frontend   # Nuxt 3 app (SPA with client-side routing)
+/frontend   # Nuxt 3 app (SPA with server-side routing)
 /backend    # Laravel 11 API (REST with Sanctum auth)
 ```
 
@@ -26,7 +26,7 @@ A modern fullstack starter kit using **Nuxt 3 (client-side)** as frontend and **
 
 ### 1. Clone Repo
 ```bash
-git clone https://github.com/1206dev/Nuxt-3-Laravel-11-Fullstack-Boilerplate-with-Admin-Login-Client-Side.git your-repo-name
+git clone https://github.com/1206dev/Nuxt-3-Laravel-11-Fullstack-Boilerplate-with-Admin-Login-Server-Side.git your-repo-name
 cd your-repo-name
 ```
 
@@ -77,7 +77,7 @@ Nuxt will run at: `http://localhost:3000`
 ## Authentication
 
 - Admin login is implemented using **Laravel Sanctum**
-- Frontend handles auth client-side (token stored in localStorage or cookie)
+- Frontend handles auth server-side (token stored in localStorage or cookie)
 - API protected by middleware: `auth:sanctum`
 
 ---
@@ -135,7 +135,7 @@ cd frontend
 
 ## License
 
-This project is open-sourced under the [MIT license](https://github.com/1206dev/Nuxt-3-Laravel-11-Fullstack-Boilerplate-with-Admin-Login-Client-Side/blob/master/LICENSE).
+This project is open-sourced under the [MIT license](https://github.com/1206dev/Nuxt-3-Laravel-11-Fullstack-Boilerplate-with-Admin-Login-Server-Side/blob/master/LICENSE).
 
 ---
 
