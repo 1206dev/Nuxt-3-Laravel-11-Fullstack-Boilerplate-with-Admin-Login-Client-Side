@@ -1,4 +1,4 @@
-# Nuxt 3 + Laravel Fullstack Boilerplate with Admin Login
+# Nuxt 3 + Laravel Fullstack Boilerplate with Admin Login Server Side
 
 A modern fullstack starter kit using **Nuxt 3 (server-side)** as frontend and **Laravel 11** as backend API. Includes basic admin login using **Laravel Sanctum**.
 
