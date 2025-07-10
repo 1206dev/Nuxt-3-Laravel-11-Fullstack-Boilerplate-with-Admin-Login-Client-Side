@@ -1,0 +1,56 @@
+version: "3.4"
+
+services:
+  base_backend:
+    build: ./ubuntu
+    container_name: base_backend
+    volumes:
+      - ./ubuntu/default.conf.local:/etc/nginx/sites-available/default
+      - ./ubuntu/startup.sh:/startup.sh
+      - ./ubuntu/log:/var/log/nginx
+      - ./ubuntu/schedule-cron:/etc/cron.d/schedule-cron
+      - ./ubuntu/php.ini:/etc/php/8.2/fpm/php.ini
+      - ../:/var/www/html
+    ports:
+      - 80:80
+      - 8081:8081
+    networks:
+      - base_backend_network
+    restart: always
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb_base_backend
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - dev_volume:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=base
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - base_backend_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_base_backend
+    restart: always
+    links:
+      - mariadb
+    environment:
+      - MYSQL_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=root
+      - PMA_HOST=mariadb
+    ports:
+      - 8080:80
+    networks:
+      - base_backend_network
+
+networks:
+  base_backend_network:
+    driver: bridge
+
+volumes:
+  dev_volume:
+    driver: local

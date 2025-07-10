@@ -1,0 +1,37 @@
+WORKDIR /var/www/html
+
+###########################################################################
+# Prepare webserver
+###########################################################################
+
+COPY .docker/ubuntu/startup.sh /
+COPY .docker/ubuntu/default.conf.dev /etc/nginx/sites-available/default
+COPY .docker/ubuntu/php.ini /etc/php/8.2/fpm/php.ini
+COPY .docker/ubuntu/schedule-cron /etc/cron.d/schedule-cron
+
+RUN chmod 0644 /etc/cron.d/schedule-cron
+RUN chmod +x /startup.sh
+
+###########################################################################
+# Prepare distribution
+###########################################################################
+
+COPY ./ /var/www/html
+
+##### Reset permission #####
+
+### RUN find /var/www/html -type d -exec chmod 755 {} \;    # Uncomment this after setup PROD env
+### RUN find /var/www/html -type f -exec chmod 644 {} \;    # Uncomment this after setup PROD env
+### RUN chown -R root:root /var/www/html                    # Uncomment this after setup PROD env
+
+# RUN mkdir /var/www/html/api/public/files
+RUN chmod -R 777 /var/www/html/base/storage/
+RUN chmod -R 777 /var/www/html/base/storage/app/
+RUN chmod -R 777 /var/www/html/base/storage/app/public
+RUN chmod -R 777 /var/www/html/base/storage/framework/
+RUN chmod -R 777 /var/www/html/base/storage/framework/cache/
+RUN chmod -R 777 /var/www/html/base/storage/framework/sessions/
+RUN chmod -R 777 /var/www/html/base/storage/framework/views/
+RUN chmod -R 777 /var/www/html/base/storage/logs/
+RUN chmod -R 777 /var/www/html/base/bootstrap/cache/
+RUN chmod +x /var/www/html/base/artisan

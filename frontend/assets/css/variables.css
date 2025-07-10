@@ -1,0 +1,32 @@
+/* Default (Light Mode) */
+:root {
+    overflow-x: hidden;
+    font-size: 16px;
+    --bg-color: #ffffff;
+    --bg-color-2: #888;
+    --text-color: #000000;
+    --text-color-2: #ffffff;
+    --primary-color: #2f6bff;
+    --secondary-color: #444E6A;
+    --hover-color: #282e3f;
+    --border-color: #ddd;
+    --scrollbar-color: #666;
+    --button-color: #F58220;
+    --button-hover: #CB6015;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    overflow-x: hidden;
+    --bg-color: #1e1e1e;
+    --bg-color-2: #888;
+    --text-color: #ffffff;
+    --text-color-2: #ffffff;
+    --primary-color: #2f6bff;
+    --secondary-color: #2b2b3c;
+    --hover-color: #1a1a2b;
+    --border-color: #555;
+    --scrollbar-color: #aaa;
+    --button-color: #d16a1e;
+    --button-hover: #b85614;
+}
